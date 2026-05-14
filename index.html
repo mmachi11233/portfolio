@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — AI Creative & Social Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D08A;
+    --gold-pale: #F7F0DC;
+    --ink: #0F0E0A;
+    --ink-mid: #3A3730;
+    --ink-soft: #7A766E;
+    --cream: #FAF7F0;
+    --white: #FFFFFF;
+    --border: rgba(201,168,76,0.25);
+    --border-strong: rgba(201,168,76,0.6);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 5vw;
+    background: rgba(250,247,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 8rem 5vw 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -15%;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .hero-inner {
+    max-width: 860px;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 0.5px solid var(--border-strong);
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  h1.hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.08;
+    font-weight: 700;
+    color: var(--ink);
+    animation: fadeUp 0.8s 0.15s ease both;
+    margin-bottom: 0.3em;
+  }
+
+  h1.hero-name em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--ink-soft);
+    font-weight: 300;
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+    line-height: 1.7;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 0.85rem 2.2rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    border: 1px solid var(--border-strong);
+    color: var(--ink);
+    padding: 0.85rem 2.2rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: border-color 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--gold); transform: translateY(-2px); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.8s ease both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 7rem 5vw;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em { color: var(--gold); font-style: italic; }
+
+  /* WHAT I DO */
+  .services {
+    background: var(--ink);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .services .section-title { color: var(--white); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    border: 0.5px solid rgba(201,168,76,0.3);
+    padding: 2rem;
+    border-radius: 4px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+  .service-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .service-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+    font-weight: 400;
+  }
+
+  .service-card p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+  }
+
+  /* PORTFOLIO */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .project-card {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .project-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(15,14,10,0.1); }
+
+  .project-visual {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Luxury Skincare */
+  .vis-luxury {
+    background: #0a0806;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .vis-luxury .circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotateBorder 8s linear infinite;
+  }
+  .vis-luxury .inner-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.85;
+  }
+  .vis-luxury .brand-text {
+    font-family: 'Playfair Display', serif;
+    color: rgba(201,168,76,0.8);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+  .vis-luxury .tagline {
+    color: rgba(255,255,255,0.35);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* Papercraft Insurance */
+  .vis-paper {
+    background: #F0EDE4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .paper-fold {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    box-shadow: 4px 4px 0 #d4cfc3, 8px 8px 0 #c4bfb4;
+    transform: rotate(-8deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    border-radius: 2px;
+  }
+  .paper-fold .fold-line {
+    width: 60px;
+    height: 2px;
+    background: #d4cfc3;
+    border-radius: 1px;
+  }
+  .paper-fold .fold-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #c4a84c;
+  }
+  .vis-paper .paper-text {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8a8070;
+    white-space: nowrap;
+  }
+
+  /* Real Estate */
+  .vis-realestate {
+    background: linear-gradient(160deg, #1a2a3a 0%, #0d1a28 100%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+    position: relative;
+  }
+  .building {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+  }
+  .bldg {
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px 2px 0 0;
+    position: relative;
+  }
+  .bldg::after {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 6px,
+      rgba(201,168,76,0.15) 6px,
+      rgba(201,168,76,0.15) 8px
+    );
+  }
+  .vis-realestate .re-text {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Playfair Display', serif;
+    color: rgba(201,168,76,0.7);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .project-info {
+    padding: 1.5rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    border: 0.5px solid var(--border-strong);
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .project-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .project-info p {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  .project-result {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 0.5px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  /* EXPERIENCE */
+  .experience { background: var(--white); }
+
+  .timeline {
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .timeline-item {
+    padding-left: 2.5rem;
+    padding-bottom: 3rem;
+    position: relative;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 8px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
+  }
+
+  .timeline-meta {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-company {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+
+  .timeline-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .timeline-bullets li {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .timeline-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .skill-group h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-list li {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skill-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* STATS */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+
+  .stat-box {
+    background: var(--white);
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--ink);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .contact .section-title { color: var(--white); }
+
+  .contact-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .contact-email {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--gold);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 2.5rem;
+    transition: opacity 0.2s;
+  }
+  .contact-email:hover { opacity: 0.75; }
+
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  .social-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 500;
+  }
+  .social-links a:hover { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.08em;
+    padding-top: 2rem;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  /* AVAILABILITY BADGE */
+  .availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #4CAF50;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.05s ease both;
+  }
+  .avail-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76,175,80,0.2);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    nav { padding: 1rem 4vw; }
+    .nav-links { gap: 1.5rem; }
+    section { padding: 5rem 5vw; }
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .about-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-card {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .about-card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 0.5px solid var(--border);
+    font-size: 0.85rem;
+  }
+  .about-card-row:last-child { border-bottom: none; }
+
+  .about-card-row span:first-child { color: var(--ink-soft); }
+  .about-card-row span:last-child { color: var(--ink); font-weight: 500; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes rotateBorder {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 1; transform: scaleY(1); }
+    50% { opacity: 0.3; transform: scaleY(0.7); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(76,175,80,0.2); }
+    50% { box-shadow: 0 0 0 5px rgba(76,175,80,0.1); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Mmachi Ogbonda</div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="availability"><div class="avail-dot"></div>Available for new projects</div>
+    <div class="hero-tag">AI Creative × Social Media</div>
+    <h1 class="hero-name">Where <em>AI</em> Meets<br>Scroll-Stopping<br>Creative</h1>
+    <p class="hero-sub">I craft AI-generated ads and manage social media that actually converts. Backed by a technical edge in product prototyping</p>
+    <div class="hero-ctas">
+      <a href="#work" class="btn-primary">See My Work</a>
+      <a href="#contact" class="btn-ghost">Let's Talk</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-label">What I Offer</div>
+  <h2 class="section-title">AI-Powered Creative<br>at <em>Brand-Level</em> Quality</h2>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h3>AI Ad Generation</h3>
+      <p>Visually striking ads across all sectors, created with AI tools and refined for brand consistency and conversion.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 4s-3 5-3 8a3 3 0 1 0 6 0c0-3-3-8-3-8z"/><path d="M8 9H3s1 7 5 7h5c4 0 5-7 5-7h-5"/><path d="M12 16v6"/></svg>
+      </div>
+      <h3>Social Media Management</h3>
+      <p>Strategy, content calendars, copywriting, and community engagement — growing audiences with data-driven decisions and on-brand storytelling.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h3>Product Prototyping</h3>
+      <p>I help you build the product prototypes. If you’re still in the 'idea phase,' I offer Rapid Product Prototyping to visualize your brand identity. We'll nail the look, the feel, and the vibe before you spend anything on manufacturing. It’s all about working smarter, not harder.
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Analytics & Optimisation</h3>
+      <p>Regular performance reporting with actionable insights. I continuously test and iterate so your ad spend works harder every month.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="work" style="background: var(--cream);">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title">AI Ads That<br><em>Convert</em></h2>
+  <div class="portfolio-grid">
+
+    <!-- Luxury Skincare -->
+    <div class="project-card fade-in">
+      <div class="project-visual">
+        <div class="vis-luxury">
+          <div style="font-size:0.55rem;letter-spacing:0.3em;color:rgba(201,168,76,0.4);text-transform:uppercase;margin-bottom:1rem;">— Luxury Collection —</div>
+          <div class="circle"><div class="inner-dot"></div></div>
+          <div class="brand-text">Lumière Skin</div>
+          <div class="tagline">Rare Botanicals · Timeless Radiance</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-tags">
+          <span class="tag">AI Generated</span>
+          <span class="tag">Luxury</span>
+          <span class="tag">Skincare</span>
+        </div>
+        <h3>Luxury Skincare Campaign</h3>
+        <p>AI-generated visual campaign for a premium skincare brand — editorial-grade aesthetics, dark luxury palette, designed to drive aspiration and click-through on Instagram and Pinterest.</p>
+        <div class="project-result">↗ Add your specific metrics here once available</div>
+      </div>
+    </div>
+
+    <!-- Papercraft Insurance -->
+    <div class="project-card fade-in">
+      <div class="project-visual">
+        <div class="vis-paper">
+          <div class="paper-fold">
+            <div class="fold-circle"></div>
+            <div class="fold-line"></div>
+            <div class="fold-line" style="width:40px;"></div>
+          </div>
+          <div class="paper-text">SafeGuard Insurance · Protection Made Simple</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-tags">
+          <span class="tag">AI Generated</span>
+          <span class="tag">Papercraft</span>
+          <span class="tag">Insurance</span>
+        </div>
+        <h3>Papercraft Insurance Ad</h3>
+        <p>A playful, unexpected take on insurance advertising — using AI-generated papercraft aesthetics to make a typically dull category feel tactile, warm, and trustworthy.</p>
+        <div class="project-result">↗ Add your specific metrics here once available</div>
+      </div>
+    </div>
+
+    <!-- Real Estate -->
+    <div class="project-card fade-in">
+      <div class="project-visual">
+        <div class="vis-realestate">
+          <div class="re-text">Prime Properties</div>
+          <div class="building">
+            <div class="bldg" style="width:28px;height:90px;"></div>
+            <div class="bldg" style="width:40px;height:130px;"></div>
+            <div class="bldg" style="width:32px;height:110px;"></div>
+            <div class="bldg" style="width:24px;height:70px;"></div>
+            <div class="bldg" style="width:36px;height:105px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-tags">
+          <span class="tag">AI Generated</span>
+          <span class="tag">Real Estate</span>
+          <span class="tag">Property</span>
+        </div>
+        <h3>Real Estate Ad Campaign</h3>
+        <p>AI-powered real estate advertising combining architectural elegance with high-converting copy — designed to attract qualified buyers across Meta and Google Ads.</p>
+        <div class="project-result">↗ Add your specific metrics here once available</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background: var(--white);">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">About</div>
+      <h2 class="section-title">AI Tools +<br><em>Human</em> Strategy</h2>
+      <p>I sit at the intersection of generative AI and performance marketing. Using the latest AI generative tools to build high-converting ads and rapid product prototypes in record time, not as a shortcut, but as a superpower to produce more, faster, without sacrificing quality.</p>
+      <p>My background in social media management means I understand what performs on each platform, how algorithms think, and how to build audiences that actually convert into customers.</p>
+      <p>Whether you need a one-off ad campaign or an ongoing creative partner, I bring both the creative firepower and the strategic thinking to make it work.</p>
+    </div>
+    <div class="about-visual fade-in">
+      <div class="about-card">
+        <div class="about-card-row">
+          <span>Speciality</span>
+          <span>AI Ad Creative</span>
+        </div>
+        <div class="about-card-row">
+          <span>Also skilled in</span>
+          <span>Software engineering</span>
+        </div>
+        <div class="about-card-row">
+          <span>Tools</span>
+          <span>Midjourney, Runway, Meta Ads</span>
+        </div>
+        <div class="about-card-row">
+          <span>Industries</span>
+          <span>Luxury, Fashion, food and more</span>
+        </div>
+        <div class="about-card-row">
+          <span>Based in</span>
+          <span>Available globally</span>
+        </div>
+        <div class="about-card-row" style="border:none;">
+          <span>Status</span>
+          <span style="color:#4CAF50;">● Open to work</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">The Track Record<br>Behind the <em>Work</em></h2>
+
+  <div class="timeline">
+    <div class="timeline-item fade-in">
+      <div class="timeline-meta">Feb 2025 – Jan 2026</div>
+      <div class="timeline-role">Content Marketing Strategist & Social Media Handler</div>
+      <div class="timeline-company">SCELTO BAGS - Ikoyi, Lagos State</div>
+      <ul class="timeline-bullets">
+        <li>I spearheaded high-converting digital marketing campaigns, driving a 30% increase in engagement
+and sales conversions.</li>
+        <li>I managed social media platforms, creating compelling content that achieved a 50% growth in
+audience reach across Instagram, Facebook, and TikTok</li>
+        <li>I developed data-driven content strategies that enhanced brand visibility and positioned Scelto
+Bags as an innovative leader in fashion accessories.</li>
+        <li> tracked, analyzed, and reported campaign performance metrics, implementing data-driven
+improvements that maximized reach, engagement, and revenue.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-meta">Oct 2023 - Dec 2024</div>
+      <div class="timeline-role">Social Media Manager</div>
+      <div class="timeline-company">MUSTAYS PLACE - Lekki, Lagos State</div>
+      <ul class="timeline-bullets">
+        <li>I developed high-impact social media strategies that consistently grew brand visibility and organic
+reach across multiple platforms</li>
+        <li>I created viral content frameworks that boosted impressions and engagement by up to 3×</li>
+        <li>I executed visually cohesive social content calendars that reinforced brand identity and message
+consistency</li>
+        <li>I leveraged analytics tools to optimize posting schedules, content formats, and audience targeting
+for maximum ROI</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row fade-in">
+    <div class="stat-box">
+      <div class="stat-number">3+</div>
+      <div class="stat-label">Industries Served</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">AI</div>
+      <div class="stat-label">Powered Creative</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">Fast</div>
+      <div class="stat-label">Turnaround</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">∞</div>
+      <div class="stat-label">Creative Range</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section style="background: var(--cream);">
+  <div class="section-label">Capabilities</div>
+  <h2 class="section-title">Tools &amp; <em>Skills</em></h2>
+  <div class="skills-grid">
+    <div class="skill-group fade-in">
+      <h4>AI Creative Tools</h4>
+      <ul class="skill-list">
+        <li>Midjourney</li>
+        <li>Runway / Gen-2</li>
+        <li>Adobe Firefly</li>
+        <li>DALL·E / ChatGPT</li>
+        <li>Stable Diffusion</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-in">
+      <h4>Social Media</h4>
+      <ul class="skill-list">
+        <li>Instagram & Reels</li>
+        <li>TikTok Strategy</li>
+        <li>LinkedIn Content</li>
+        <li>Facebook Ads Manager</li>
+        <li>Content Calendar Planning</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-in">
+      <h4>Design & Production</h4>
+      <ul class="skill-list">
+        <li>Adobe Photoshop</li>
+        <li>Canva Pro</li>
+        <li>CapCut / Video Editing</li>
+        <li>Brand Identity</li>
+        <li>Ad Copywriting</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-in">
+      <h4>Strategy & Analytics</h4>
+      <ul class="skill-list">
+        <li>Campaign Strategy</li>
+        <li>A/B Testing</li>
+        <li>Meta Business Suite</li>
+        <li>Google Analytics</li>
+        <li>Performance Reporting</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label" style="color:rgba(201,168,76,0.7);">Get in Touch</div>
+  <h2 class="section-title" style="margin-bottom:1rem;">Ready to Work<br>Together?</h2>
+  <p class="contact-desc">Whether you need a single campaign or an ongoing creative partner, let's make something that stops the scroll.</p>
+  <a href="mailto:hello@yourname.com" class="contact-email">hello@yourname.com</a>
+  <div class="social-links">
+    <a href="#">Instagram</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">TikTok</a>
+    <a href="#">Behance</a>
+  </div>
+  <p class="footer-copy">© 2025 Your Name · AI Creative & Social Media Manager</p>
+</section>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
