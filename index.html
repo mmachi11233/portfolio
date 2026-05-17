@@ -33,7 +33,6 @@
     line-height: 1.7;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -46,32 +45,11 @@
     backdrop-filter: blur(12px);
     border-bottom: 0.5px solid var(--border);
   }
-
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.05em;
-    color: var(--ink);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: var(--ink-soft);
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: 0.05em; color: var(--ink); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold); }
 
-  /* HERO */
   .hero {
     min-height: 100vh;
     display: grid;
@@ -80,763 +58,198 @@
     position: relative;
     overflow: hidden;
   }
-
   .hero::before {
     content: '';
     position: absolute;
-    top: -20%;
-    right: -15%;
-    width: 60vw;
-    height: 60vw;
+    top: -20%; right: -15%;
+    width: 60vw; height: 60vw;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
-
   .hero::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 0; left: 0; right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
-
-  .hero-inner {
-    max-width: 860px;
-    text-align: center;
-    position: relative;
-  }
-
+  .hero-inner { max-width: 860px; text-align: center; position: relative; }
   .hero-tag {
     display: inline-block;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 0.5px solid var(--border-strong);
-    padding: 0.4rem 1.2rem;
-    border-radius: 999px;
-    margin-bottom: 2rem;
-    font-weight: 500;
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); border: 0.5px solid var(--border-strong);
+    padding: 0.4rem 1.2rem; border-radius: 999px;
+    margin-bottom: 2rem; font-weight: 500;
     animation: fadeUp 0.8s ease both;
   }
-
   h1.hero-name {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3rem, 7vw, 5.5rem);
-    line-height: 1.08;
-    font-weight: 700;
-    color: var(--ink);
-    animation: fadeUp 0.8s 0.15s ease both;
-    margin-bottom: 0.3em;
+    line-height: 1.08; font-weight: 700; color: var(--ink);
+    animation: fadeUp 0.8s 0.15s ease both; margin-bottom: 0.3em;
   }
-
-  h1.hero-name em {
-    color: var(--gold);
-    font-style: italic;
-  }
-
+  h1.hero-name em { color: var(--gold); font-style: italic; }
   .hero-sub {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--ink-soft);
-    font-weight: 300;
-    max-width: 560px;
-    margin: 0 auto 2.5rem;
-    animation: fadeUp 0.8s 0.3s ease both;
-    line-height: 1.7;
+    font-size: clamp(1rem, 2vw, 1.2rem); color: var(--ink-soft); font-weight: 300;
+    max-width: 560px; margin: 0 auto 2.5rem;
+    animation: fadeUp 0.8s 0.3s ease both; line-height: 1.7;
   }
-
-  .hero-ctas {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    animation: fadeUp 0.8s 0.45s ease both;
-  }
-
+  .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.8s 0.45s ease both; }
   .btn-primary {
-    background: var(--gold);
-    color: var(--ink);
-    padding: 0.85rem 2.2rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
+    background: var(--gold); color: var(--ink);
+    padding: 0.85rem 2.2rem; border-radius: 999px;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+    text-decoration: none; text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s; display: inline-block;
   }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-
   .btn-ghost {
-    border: 1px solid var(--border-strong);
-    color: var(--ink);
-    padding: 0.85rem 2.2rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: border-color 0.2s, transform 0.15s;
-    display: inline-block;
+    border: 1px solid var(--border-strong); color: var(--ink);
+    padding: 0.85rem 2.2rem; border-radius: 999px;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+    text-decoration: none; text-transform: uppercase;
+    transition: border-color 0.2s, transform 0.15s; display: inline-block;
   }
   .btn-ghost:hover { border-color: var(--gold); transform: translateY(-2px); }
-
   .scroll-hint {
-    position: absolute;
-    bottom: 3rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--ink-soft);
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: var(--ink-soft); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
     animation: fadeUp 1s 0.8s ease both;
   }
-
   .scroll-line {
-    width: 1px;
-    height: 40px;
+    width: 1px; height: 40px;
     background: linear-gradient(to bottom, var(--gold), transparent);
     animation: scrollPulse 2s ease-in-out infinite;
   }
 
-  /* SECTIONS */
-  section {
-    padding: 7rem 5vw;
-  }
-
-  .section-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 0.8rem;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.15;
-    color: var(--ink);
-    margin-bottom: 1.5rem;
-  }
-
+  section { padding: 7rem 5vw; }
+  .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 1.5rem; }
   .section-title em { color: var(--gold); font-style: italic; }
 
-  /* WHAT I DO */
-  .services {
-    background: var(--ink);
-    color: var(--white);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .services::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-
+  .services { background: var(--ink); color: var(--white); position: relative; overflow: hidden; }
+  .services::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
   .services .section-title { color: var(--white); }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-
-  .service-card {
-    border: 0.5px solid rgba(201,168,76,0.3);
-    padding: 2rem;
-    border-radius: 4px;
-    transition: border-color 0.2s, transform 0.2s;
-    position: relative;
-  }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .service-card { border: 0.5px solid rgba(201,168,76,0.3); padding: 2rem; border-radius: 4px; transition: border-color 0.2s, transform 0.2s; }
   .service-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-
-  .service-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(201,168,76,0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.2rem;
-  }
-
+  .service-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(201,168,76,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
   .service-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--white); margin-bottom: 0.6rem; font-weight: 400; }
+  .service-card p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
 
-  .service-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    color: var(--white);
-    margin-bottom: 0.6rem;
-    font-weight: 400;
-  }
-
-  .service-card p {
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.7;
-  }
-
-  /* PORTFOLIO */
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .project-card {
-    background: var(--white);
-    border: 0.5px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-  }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .project-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 4px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
   .project-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(15,14,10,0.1); }
+  .project-visual { height: 220px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 
-  .project-visual {
-    height: 220px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  .vis-luxury { background: #0a0806; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.5rem; }
+  .vis-luxury .circle { width: 80px; height: 80px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.6); display: flex; align-items: center; justify-content: center; animation: rotateBorder 8s linear infinite; }
+  .vis-luxury .inner-dot { width: 24px; height: 24px; border-radius: 50%; background: var(--gold); opacity: 0.85; }
+  .vis-luxury .brand-text { font-family: 'Playfair Display', serif; color: rgba(201,168,76,0.8); font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; margin-top: 0.5rem; }
+  .vis-luxury .tagline { color: rgba(255,255,255,0.35); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; }
 
-  /* Luxury Skincare */
-  .vis-luxury {
-    background: #0a0806;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .vis-luxury .circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 1px solid rgba(201,168,76,0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: rotateBorder 8s linear infinite;
-  }
-  .vis-luxury .inner-dot {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--gold);
-    opacity: 0.85;
-  }
-  .vis-luxury .brand-text {
-    font-family: 'Playfair Display', serif;
-    color: rgba(201,168,76,0.8);
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    margin-top: 0.5rem;
-  }
-  .vis-luxury .tagline {
-    color: rgba(255,255,255,0.35);
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
+  .vis-paper { background: #F0EDE4; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .paper-fold { width: 100px; height: 100px; background: #fff; box-shadow: 4px 4px 0 #d4cfc3, 8px 8px 0 #c4bfb4; transform: rotate(-8deg); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px; border-radius: 2px; }
+  .paper-fold .fold-line { width: 60px; height: 2px; background: #d4cfc3; border-radius: 1px; }
+  .paper-fold .fold-circle { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #c4a84c; }
+  .vis-paper .paper-text { position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #8a8070; white-space: nowrap; }
 
-  /* Papercraft Insurance */
-  .vis-paper {
-    background: #F0EDE4;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .paper-fold {
-    width: 100px;
-    height: 100px;
-    background: #fff;
-    box-shadow: 4px 4px 0 #d4cfc3, 8px 8px 0 #c4bfb4;
-    transform: rotate(-8deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 6px;
-    border-radius: 2px;
-  }
-  .paper-fold .fold-line {
-    width: 60px;
-    height: 2px;
-    background: #d4cfc3;
-    border-radius: 1px;
-  }
-  .paper-fold .fold-circle {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: 2px solid #c4a84c;
-  }
-  .vis-paper .paper-text {
-    position: absolute;
-    bottom: 1.2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #8a8070;
-    white-space: nowrap;
-  }
+  .vis-fold { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.6rem; position: relative; }
+  .vis-fold .fold-logo { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; }
+  .vis-fold .fold-tag { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .vis-fold .fold-dots { display: flex; gap: 6px; margin-top: 0.4rem; }
+  .vis-fold .fold-dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+  .vis-fold .fold-dots span:nth-child(1) { opacity: 0.4; }
+  .vis-fold .fold-dots span:nth-child(2) { opacity: 1; }
+  .vis-fold .fold-dots span:nth-child(3) { opacity: 0.4; }
 
-  /* Real Estate */
-  .vis-realestate {
-    background: linear-gradient(160deg, #1a2a3a 0%, #0d1a28 100%);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 1.5rem;
-    position: relative;
-  }
-  .building {
-    display: flex;
-    align-items: flex-end;
-    gap: 4px;
-  }
-  .bldg {
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 2px 2px 0 0;
-    position: relative;
-  }
-  .bldg::after {
-    content: '';
-    position: absolute;
-    top: 25%;
-    left: 15%;
-    right: 15%;
-    bottom: 15%;
-    background: repeating-linear-gradient(
-      to bottom,
-      transparent,
-      transparent 6px,
-      rgba(201,168,76,0.15) 6px,
-      rgba(201,168,76,0.15) 8px
-    );
-  }
-  .vis-realestate .re-text {
-    position: absolute;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Playfair Display', serif;
-    color: rgba(201,168,76,0.7);
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
+  .project-info { padding: 1.5rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+  .tag { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 999px; border: 0.5px solid var(--border-strong); color: var(--gold); font-weight: 500; }
+  .project-info h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--ink); }
+  .project-info p { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.65; }
+  .project-result { margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid var(--border); font-size: 0.8rem; color: var(--gold); font-weight: 500; letter-spacing: 0.05em; }
 
-  .project-info {
-    padding: 1.5rem;
-  }
-
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .tag {
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    border-radius: 999px;
-    border: 0.5px solid var(--border-strong);
-    color: var(--gold);
-    font-weight: 500;
-  }
-
-  .project-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--ink);
-  }
-
-  .project-info p {
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    line-height: 1.65;
-  }
-
-  .project-result {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 0.5px solid var(--border);
-    font-size: 0.8rem;
-    color: var(--gold);
-    font-weight: 500;
-    letter-spacing: 0.05em;
-  }
-
-  /* EXPERIENCE */
   .experience { background: var(--white); }
+  .timeline { margin-top: 3rem; position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold), transparent); }
+  .timeline-item { padding-left: 2.5rem; padding-bottom: 3rem; position: relative; }
+  .timeline-item::before { content: ''; position: absolute; left: -4px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.2); }
+  .timeline-meta { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 0.4rem; }
+  .timeline-role { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+  .timeline-company { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 1rem; }
+  .timeline-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .timeline-bullets li { font-size: 0.88rem; color: var(--ink-mid); padding-left: 1rem; position: relative; line-height: 1.6; }
+  .timeline-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; }
 
-  .timeline {
-    margin-top: 3rem;
-    position: relative;
-  }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .skill-group h4 { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border); }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .skill-list li { font-size: 0.88rem; color: var(--ink-mid); display: flex; align-items: center; gap: 0.5rem; }
+  .skill-list li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 8px;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
-  }
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: 4px; overflow: hidden; margin-top: 3rem; }
+  .stat-box { background: var(--white); padding: 2rem 1.5rem; text-align: center; }
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+  .stat-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
 
-  .timeline-item {
-    padding-left: 2.5rem;
-    padding-bottom: 3rem;
-    position: relative;
-  }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -4px;
-    top: 8px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
-  }
-
-  .timeline-meta {
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 0.4rem;
-  }
-
-  .timeline-role {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 0.2rem;
-  }
-
-  .timeline-company {
-    font-size: 0.88rem;
-    color: var(--ink-soft);
-    margin-bottom: 1rem;
-  }
-
-  .timeline-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .timeline-bullets li {
-    font-size: 0.88rem;
-    color: var(--ink-mid);
-    padding-left: 1rem;
-    position: relative;
-    line-height: 1.6;
-  }
-
-  .timeline-bullets li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-    font-size: 0.75rem;
-  }
-
-  /* SKILLS */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .skill-group h4 {
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .skill-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .skill-list li {
-    font-size: 0.88rem;
-    color: var(--ink-mid);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .skill-list li::before {
-    content: '';
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-
-  /* STATS */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 0.5px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: 3rem;
-  }
-
-  .stat-box {
-    background: var(--white);
-    padding: 2rem 1.5rem;
-    text-align: center;
-  }
-
-  .stat-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 0.4rem;
-  }
-
-  .stat-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    font-weight: 500;
-  }
-
-  /* CONTACT */
-  .contact {
-    background: var(--ink);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .contact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-
+  .contact { background: var(--ink); text-align: center; position: relative; overflow: hidden; }
+  .contact::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
   .contact .section-title { color: var(--white); }
-
-  .contact-desc {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.5);
-    max-width: 480px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.7;
-  }
-
-  .contact-email {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    color: var(--gold);
-    text-decoration: none;
-    display: block;
-    margin-bottom: 2.5rem;
-    transition: opacity 0.2s;
-  }
+  .contact-desc { font-size: 1rem; color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; }
+  .contact-email { font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 2.5vw, 1.7rem); color: var(--gold); text-decoration: none; display: block; margin-bottom: 2.5rem; transition: opacity 0.2s; }
   .contact-email:hover { opacity: 0.75; }
 
-  .social-links {
+  /* SOCIAL ICON BUTTONS */
+  .social-links { display: flex; gap: 1.2rem; justify-content: center; margin-bottom: 4rem; flex-wrap: wrap; }
+
+  .social-icon-link {
     display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    margin-bottom: 4rem;
-  }
-
-  .social-links a {
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.6rem;
+    border: 0.5px solid rgba(201,168,76,0.35);
+    border-radius: 999px;
+    color: rgba(255,255,255,0.5);
     text-decoration: none;
-    transition: color 0.2s;
-    font-weight: 500;
-  }
-  .social-links a:hover { color: var(--gold); }
-
-  .footer-copy {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.2);
-    letter-spacing: 0.08em;
-    padding-top: 2rem;
-    border-top: 0.5px solid rgba(255,255,255,0.06);
-  }
-
-  /* AVAILABILITY BADGE */
-  .availability {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #4CAF50;
     font-weight: 500;
-    margin-bottom: 1.5rem;
-    animation: fadeUp 0.8s 0.05s ease both;
+    transition: color 0.2s, border-color 0.2s, transform 0.15s;
   }
-  .avail-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #4CAF50;
-    box-shadow: 0 0 0 3px rgba(76,175,80,0.2);
-    animation: pulse 2s ease-in-out infinite;
-  }
+  .social-icon-link:hover { color: var(--gold); border-color: var(--gold); transform: translateY(-2px); }
+  .social-icon-link svg { flex-shrink: 0; }
 
-  /* ABOUT */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 5rem;
-    align-items: center;
-  }
+  .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); letter-spacing: 0.08em; padding-top: 2rem; border-top: 0.5px solid rgba(255,255,255,0.06); }
 
+  .availability { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #4CAF50; font-weight: 500; margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.05s ease both; }
+  .avail-dot { width: 7px; height: 7px; border-radius: 50%; background: #4CAF50; box-shadow: 0 0 0 3px rgba(76,175,80,0.2); animation: pulse 2s ease-in-out infinite; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
   @media (max-width: 700px) {
     .about-grid { grid-template-columns: 1fr; gap: 2rem; }
     nav { padding: 1rem 4vw; }
     .nav-links { gap: 1.5rem; }
     section { padding: 5rem 5vw; }
   }
-
-  .about-text p {
-    font-size: 0.95rem;
-    color: var(--ink-mid);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
-
-  .about-visual {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .about-card {
-    background: var(--white);
-    border: 0.5px solid var(--border);
-    border-radius: 4px;
-    padding: 2rem;
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .about-card-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 0;
-    border-bottom: 0.5px solid var(--border);
-    font-size: 0.85rem;
-  }
+  .about-text p { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.8; margin-bottom: 1rem; }
+  .about-visual { position: relative; display: flex; align-items: center; justify-content: center; }
+  .about-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 4px; padding: 2rem; width: 100%; max-width: 320px; }
+  .about-card-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 0.75rem 0; border-bottom: 0.5px solid var(--border); font-size: 0.85rem; gap: 1rem; }
   .about-card-row:last-child { border-bottom: none; }
+  .about-card-row span:first-child { color: var(--ink-soft); flex-shrink: 0; }
+  .about-card-row span:last-child { color: var(--ink); font-weight: 500; text-align: right; }
 
-  .about-card-row span:first-child { color: var(--ink-soft); }
-  .about-card-row span:last-child { color: var(--ink); font-weight: 500; }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes rotateBorder {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 1; transform: scaleY(1); }
-    50% { opacity: 0.3; transform: scaleY(0.7); }
-  }
-
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 3px rgba(76,175,80,0.2); }
-    50% { box-shadow: 0 0 0 5px rgba(76,175,80,0.1); }
-  }
-
-  .fade-in {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
-  }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes rotateBorder { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes scrollPulse { 0%, 100% { opacity: 1; transform: scaleY(1); } 50% { opacity: 0.3; transform: scaleY(0.7); } }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 3px rgba(76,175,80,0.2); } 50% { box-shadow: 0 0 0 5px rgba(76,175,80,0.1); } }
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
@@ -858,7 +271,7 @@
     <div class="availability"><div class="avail-dot"></div>Available for new projects</div>
     <div class="hero-tag">AI Creative × Social Media</div>
     <h1 class="hero-name">Where <em>AI</em> Meets<br>Scroll-Stopping<br>Creative</h1>
-    <p class="hero-sub">I craft AI-generated ads and manage social media that actually converts. Backed by a technical edge in product prototyping</p>
+    <p class="hero-sub">I craft AI-generated ads and manage social media that actually converts. Backed by a technical edge in product prototyping.</p>
     <div class="hero-ctas">
       <a href="#work" class="btn-primary">See My Work</a>
       <a href="#contact" class="btn-ghost">Let's Talk</a>
@@ -894,7 +307,7 @@
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
       </div>
       <h3>Product Prototyping</h3>
-      <p>I help you build the product prototypes. If you’re still in the 'idea phase,' I offer Rapid Product Prototyping to visualize your brand identity. We'll nail the look, the feel, and the vibe before you spend anything on manufacturing. It’s all about working smarter, not harder.
+      <p>Still in the idea phase? I offer Rapid Product Prototyping to visualise your brand identity — nail the look, the feel, and the vibe before spending anything on manufacturing.</p>
     </div>
     <div class="service-card fade-in">
       <div class="service-icon">
@@ -931,11 +344,10 @@
         <h3>Luxury Skincare Campaign</h3>
         <p>AI-generated visual campaign for a premium skincare brand — editorial-grade aesthetics, dark luxury palette, designed to drive aspiration and click-through on Instagram and Pinterest.</p>
         <div class="project-result">
-  <a href="videos/lumiere.mp4" target="_blank" 
-     style="color:var(--gold); text-decoration:none; font-weight:500;">
-    ↗ Click to view
-  </a>
-</div>
+          <a href="videos/lumiere.mp4" target="_blank" style="color:var(--gold); text-decoration:none; font-weight:500;">↗ Click to view</a>
+        </div>
+      </div>
+    </div>
 
     <!-- Papercraft Insurance -->
     <div class="project-card fade-in">
@@ -958,40 +370,33 @@
         <h3>Papercraft Insurance Ad</h3>
         <p>A playful, unexpected take on insurance advertising — using AI-generated papercraft aesthetics to make a typically dull category feel tactile, warm, and trustworthy.</p>
         <div class="project-result">
-  <a href="videos/202605131737.mp4" target="_blank"
-     style="color:var(--gold); text-decoration:none; font-weight:500;">
-    ↗ Click to view
-  </a>
-</div>
+          <a href="videos/202605131737.mp4" target="_blank" style="color:var(--gold); text-decoration:none; font-weight:500;">↗ Click to view</a>
+        </div>
+      </div>
+    </div>
 
-    <!-- Real Estate -->
+    <!-- Fold Food Delivery -->
     <div class="project-card fade-in">
       <div class="project-visual">
-        <div class="vis-realestate">
-          <div class="re-text">Fold</div>
-          <div class="building">
-            <div class="bldg" style="width:28px;height:90px;"></div>
-            <div class="bldg" style="width:40px;height:130px;"></div>
-            <div class="bldg" style="width:32px;height:110px;"></div>
-            <div class="bldg" style="width:24px;height:70px;"></div>
-            <div class="bldg" style="width:36px;height:105px;"></div>
-          </div>
+        <div class="vis-fold">
+          <div class="fold-logo">fold</div>
+          <div class="fold-tag">Food Delivered Fast</div>
+          <div class="fold-dots"><span></span><span></span><span></span></div>
         </div>
       </div>
       <div class="project-info">
         <div class="project-tags">
           <span class="tag">AI Generated</span>
-          <span class="tag">Food Delivery service</span>
-          <span class="tag">Property</span>
+          <span class="tag">Food Delivery</span>
+          <span class="tag">App Marketing</span>
         </div>
-        <h3>Food delivery service Ad</h3>
-        <p><p>AI-generated app ad campaign for Fold, a modern food delivery service bold visuals and punchy copy crafted to stop the scroll and drive app installs across Instagram Reels Meta ads and TikTok.</p></p>
-       <div class="project-result">
-  <a href="videos/202605151128 (1).mp4" target="_blank"
-     style="color:var(--gold); text-decoration:none; font-weight:500;">
-    ↗ Click to view
-  </a>
-</div>
+        <h3>Fold — Food Delivery App Campaign</h3>
+        <p>AI-generated app ad campaign for Fold, a modern food delivery service — bold visuals and punchy copy crafted to stop the scroll and drive app installs across Instagram Reels, Meta Ads, and TikTok.</p>
+        <div class="project-result">
+          <a href="videos/202605151128 (1).mp4" target="_blank" style="color:var(--gold); text-decoration:none; font-weight:500;">↗ Click to view</a>
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
@@ -1002,38 +407,18 @@
     <div class="about-text">
       <div class="section-label">About</div>
       <h2 class="section-title">AI Tools +<br><em>Human</em> Strategy</h2>
-      <p>I sit at the intersection of generative AI and performance marketing. Using the latest AI generative tools to build high-converting ads and rapid product prototypes in record time, not as a shortcut, but as a superpower to produce more, faster, without sacrificing quality.</p>
+      <p>I sit at the intersection of generative AI and performance marketing. Using the latest AI generative tools to build high-converting ads and rapid product prototypes in record time — not as a shortcut, but as a superpower to produce more, faster, without sacrificing quality.</p>
       <p>My background in computer science and social media management means I understand what performs on each platform, how algorithms think, and how to build audiences that actually convert into customers.</p>
       <p>Whether you need a one-off ad campaign or an ongoing creative partner, I bring both the creative firepower and the strategic thinking to make it work.</p>
     </div>
     <div class="about-visual fade-in">
       <div class="about-card">
-        <div class="about-card-row">
-          <span>Speciality</span>
-          <span>AI Ad Creative</span>
-        </div>
-        <div class="about-card-row">
-          <span>Also skilled in</span>
-          <span>Software development,
-           Machine learning</span>
-        </div>
-        <div class="about-card-row">
-          <span>Tools</span>
-          <span>ComfyUI, Midjourney,
-           Runway, Meta Ads</span>
-        </div>
-        <div class="about-card-row">
-          <span>Industries</span>
-          <span>Luxury, Fashion, food and more</span>
-        </div>
-        <div class="about-card-row">
-          <span>Based in</span>
-          <span>Available globally</span>
-        </div>
-        <div class="about-card-row" style="border:none;">
-          <span>Status</span>
-          <span style="color:#4CAF50;">● Open to work</span>
-        </div>
+        <div class="about-card-row"><span>Speciality</span><span>AI Ad Creative</span></div>
+        <div class="about-card-row"><span>Also skilled in</span><span>Software Dev, Machine Learning</span></div>
+        <div class="about-card-row"><span>Tools</span><span>ComfyUI, Midjourney, Runway, Meta Ads</span></div>
+        <div class="about-card-row"><span>Industries</span><span>Luxury, Fashion, Food & more</span></div>
+        <div class="about-card-row"><span>Based in</span><span>Lagos, Nigeria</span></div>
+        <div class="about-card-row" style="border:none;"><span>Status</span><span style="color:#4CAF50;">● Open to work</span></div>
       </div>
     </div>
   </div>
@@ -1048,53 +433,33 @@
     <div class="timeline-item fade-in">
       <div class="timeline-meta">Feb 2025 – Jan 2026</div>
       <div class="timeline-role">Content Marketing Strategist & Social Media Handler</div>
-      <div class="timeline-company">SCELTO BAGS - Ikoyi, Lagos State</div>
+      <div class="timeline-company">SCELTO BAGS — Ikoyi, Lagos State</div>
       <ul class="timeline-bullets">
-        <li>I spearheaded high-converting digital marketing campaigns, driving a 30% increase in engagement
-and sales conversions.</li>
-        <li>I managed social media platforms, creating compelling content that achieved a 50% growth in
-audience reach across Instagram, Facebook, and TikTok</li>
-        <li>I developed data-driven content strategies that enhanced brand visibility and positioned Scelto
-Bags as an innovative leader in fashion accessories.</li>
-        <li> tracked, analyzed, and reported campaign performance metrics, implementing data-driven
-improvements that maximized reach, engagement, and revenue.</li>
+        <li>Spearheaded high-converting digital marketing campaigns, driving a 30% increase in engagement and sales conversions.</li>
+        <li>Managed social media platforms, creating compelling content that achieved 50% growth in audience reach across Instagram, Facebook, and TikTok.</li>
+        <li>Developed data-driven content strategies that enhanced brand visibility and positioned Scelto Bags as an innovative leader in fashion accessories.</li>
+        <li>Tracked, analysed, and reported campaign performance metrics, implementing improvements that maximised reach, engagement, and revenue.</li>
       </ul>
     </div>
 
     <div class="timeline-item fade-in">
-      <div class="timeline-meta">Oct 2023 - Dec 2024</div>
+      <div class="timeline-meta">Oct 2023 – Dec 2024</div>
       <div class="timeline-role">Social Media Manager</div>
-      <div class="timeline-company">MUSTAYS PLACE - Lekki, Lagos State</div>
+      <div class="timeline-company">MUSTAYS PLACE — Lekki, Lagos State</div>
       <ul class="timeline-bullets">
-        <li>I developed high-impact social media strategies that consistently grew brand visibility and organic
-reach across multiple platforms</li>
-        <li>I created viral content frameworks that boosted impressions and engagement by up to 3×</li>
-        <li>I executed visually cohesive social content calendars that reinforced brand identity and message
-consistency</li>
-        <li>I leveraged analytics tools to optimize posting schedules, content formats, and audience targeting
-for maximum ROI</li>
+        <li>Developed high-impact social media strategies that consistently grew brand visibility and organic reach across multiple platforms.</li>
+        <li>Created viral content frameworks that boosted impressions and engagement by up to 3×.</li>
+        <li>Executed visually cohesive social content calendars that reinforced brand identity and message consistency.</li>
+        <li>Leveraged analytics tools to optimise posting schedules, content formats, and audience targeting for maximum ROI.</li>
       </ul>
     </div>
   </div>
 
-  <!-- STATS -->
   <div class="stats-row fade-in">
-    <div class="stat-box">
-      <div class="stat-number">3+</div>
-      <div class="stat-label">Industries Served</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-number">AI</div>
-      <div class="stat-label">Powered Creative</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-number">Fast</div>
-      <div class="stat-label">Turnaround</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-number">∞</div>
-      <div class="stat-label">Creative Range</div>
-    </div>
+    <div class="stat-box"><div class="stat-number">50%</div><div class="stat-label">Avg Reach Growth</div></div>
+    <div class="stat-box"><div class="stat-number">3×</div><div class="stat-label">Engagement Boost</div></div>
+    <div class="stat-box"><div class="stat-number">30%</div><div class="stat-label">Sales Conversion Lift</div></div>
+    <div class="stat-box"><div class="stat-number">3+</div><div class="stat-label">Industries Served</div></div>
   </div>
 </section>
 
@@ -1106,10 +471,10 @@ for maximum ROI</li>
     <div class="skill-group fade-in">
       <h4>AI Creative Tools</h4>
       <ul class="skill-list">
+        <li>ComfyUI</li>
         <li>Midjourney</li>
         <li>Runway / Gen-2</li>
         <li>Adobe Firefly</li>
-        <li>DALL·E / ChatGPT</li>
         <li>Stable Diffusion</li>
       </ul>
     </div>
@@ -1151,13 +516,33 @@ for maximum ROI</li>
   <div class="section-label" style="color:rgba(201,168,76,0.7);">Get in Touch</div>
   <h2 class="section-title" style="margin-bottom:1rem;">Ready to Work<br>Together?</h2>
   <p class="contact-desc">Whether you need a single campaign or an ongoing creative partner, let's make something that stops the scroll.</p>
-  <a href="mailto:hello@yourname.com" class="contact-email">ogbondammachi@outlook.com</a>
+
+  <a href="mailto:ogbondammachi@outlook.com" class="contact-email">ogbondammachi@outlook.com</a>
+
   <div class="social-links">
-    <a href="#">Instagram</a>
-    <a href="#">LinkedIn</a>
-    <a href="#">TikTok</a>
-    <a href="#">Behance</a>
+
+    <!-- ✏️ REPLACE the href below with your actual LinkedIn URL -->
+    <!-- Example: href="https://linkedin.com/in/mmachi-ogbonda" -->
+    <a href="https://linkedin.com/in/YOUR-LINKEDIN-HERE" target="_blank" class="social-icon-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="4"/>
+        <line x1="8" y1="11" x2="8" y2="16"/>
+        <circle cx="8" cy="7.5" r="0.8" fill="currentColor" stroke="none"/>
+        <path d="M12 16v-5m0 0a3 3 0 0 1 6 0v5"/>
+      </svg>
+      LinkedIn
+    </a>
+
+    <a href="mailto:ogbondammachi@outlook.com" class="social-icon-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="3"/>
+        <path d="m2 7 10 7 10-7"/>
+      </svg>
+      Email Me
+    </a>
+
   </div>
+
   <p class="footer-copy">© 2025 Mmachi Ogbonda · AI Creative & Social Media Manager</p>
 </section>
 
@@ -1175,3 +560,4 @@ for maximum ROI</li>
 </script>
 </body>
 </html>
+
